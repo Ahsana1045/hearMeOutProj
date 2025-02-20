@@ -1,6 +1,79 @@
-# Flask React Project
+# Flask React Project (Hear Me Out?)
 
-This is the starter for the Flask React project.
+(all resources in "hmo_resources" folder)
+
+# Database Schema
+
+![alt text](<hmo_resources/HearMeOut Schema.png>)
+
+# Hear Me Out? Wireframes
+
+![alt text](hmo_resources/hmo_wireframe.png)
+
+# User Stories
+Authentication & User Management
+User Login & Signup
+
+As a user, I want to log in or sign up before using the app so that I can access all features.
+Profile Management
+
+As a user, I want to view my profile, where I can see all the characters I’ve liked.
+Core Swiping Feature
+Swipe or Like Characters
+
+As a user, I want to see one character at a time and be able to either like (swipe right) or pass (swipe left) on them.
+See Like Count After Swiping
+
+As a user, I want to see how many likes a character has only after I have swiped on them, so that I can engage without being influenced by popularity.
+User-Generated Content
+Create & Upload Characters
+
+As a user, I want to upload my own characters to the app so that other users can interact with them.
+Character Descriptions
+
+As a user, I want to add a 50-character description to each character I upload so that I can provide a quick intro about them.
+
+BONUS Features That Could Enhance the App
+Undo Last Swipe (Optional Premium Feature?)
+
+As a user, I want to undo my last swipe in case I made a mistake.
+Super Like Feature (Limited per Day?)
+
+As a user, I want to "Super Like" a character, showing that I really like them.
+Character Sorting & Filtering
+
+As a user, I want to filter characters by category (e.g., movies, TV shows, anime, comics) so that I can see characters that match my interests.
+Character Comment Section
+
+As a user, I want to leave and read comments on characters to discuss with other users.
+Would you like to add features like favoriting characters, seeing top-liked characters, or user interactions like comments or discussions?
+
+# MVP Feature List
+
+1. User Authentication:
+   - Sign Up and Login: Allow users to create an account and log in
+   - Profile Management: Basic user profile with username, avatar and all Liked Characters
+
+2. Character Database:
+   - Character Profiles: Create database of unreal characters
+   - Character Categories (BONUS): Organize characters by cartoon, gender, movie or TV show
+
+3. Swipe Interface:
+   - Swipe Funcitonality: Implement Swipe Left for "Pass" and Swipe Right for "Like"
+   - Ransomized Display: Show characters in a ransom order for swiping
+
+4. Tallying Likes:
+   - Like Counter: Track and tally the number of likes each character recieves
+   - Users should be able to see how many likes a character has, able to like a character, and unlike character from their profile, where they can view all the characters they've liked.
+   - Top Characters (BONUS): Display a leaderboard or Top-Liked list
+
+5. Post Characters:
+   - Character Submission Form: Users will be able to view other posted characters
+   - Form Validation: Unique names only. Same character cannot be uploaded
+   - Image upload handling: Image storage and image preview
+   - Character Management: Edit/Delete user-owned characters with
+   - Character Display: Character gallery of all submitted characters
+
 
 ## Getting started
 
