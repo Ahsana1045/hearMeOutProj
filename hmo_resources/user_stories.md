@@ -34,4 +34,4 @@ As a user, I want to filter characters by category (e.g., movies, TV shows, anim
 Character Comment Section
 
 As a user, I want to leave and read comments on characters to discuss with other users.
-Would you like to add features like favoriting characters, seeing top-liked characters, or user interactions like comments or discussions?
+

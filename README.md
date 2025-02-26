@@ -4,7 +4,7 @@
 
 # Database Schema
 
-![alt text](<hmo_resources/HearMeOut Schema.png>)
+![alt text](<hmo_resources/hearMeOut Schema.PNG>)
 
 # Hear Me Out? Wireframes
 
