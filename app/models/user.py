@@ -18,6 +18,8 @@ class User(db.Model, UserMixin):
 
     #RELATIONSHIPS
     likes= db.relationship("Like", back_populates="user")
+    characters= db.relationship("Character", back_populates="user")
+
 
 
     @property

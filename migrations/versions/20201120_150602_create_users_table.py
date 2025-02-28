@@ -40,8 +40,12 @@ def upgrade():
         sa.Column('description', sa.String(length=500), nullable=False),
         sa.Column('image_url', sa.String(length=500), nullable=False),
         sa.Column('user_id', sa.Integer(), nullable=True),
+        sa.Column('created_at', sa.DateTime(), nullable=True),
+        sa.Column('updated_at', sa.DateTime(), nullable=True),
         sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
-        sa.PrimaryKeyConstraint('id')
+        sa.PrimaryKeyConstraint('id'),
+        sa.UniqueConstraint('name')
+
     )
 
     # Create 'likes' table

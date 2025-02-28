@@ -6,15 +6,15 @@ from sqlalchemy.sql import func
 character_routes = Blueprint('characters', __name__)
 
 #GET ALL CHARACTERS
-@character_routes.route('/')
-@login_required
+@character_routes.route('')
+# @login_required
 def get_characters():
     characters = Character.query.all()
     return jsonify([char.to_dict() for char in characters])
 
 #GET A SINGLE CHARACTER BY ID
 @character_routes.route('/<int:character_id>')
-@login_required
+# @login_required
 def get_character(character_id):
     character = Character.query.get(character_id)
     if not character:
@@ -22,7 +22,7 @@ def get_character(character_id):
     return jsonify(character.to_dict())
 
 #CREATE A CHARACTER (LOGIN REQUIRED)
-@character_routes.route('/', methods=['POST'])
+@character_routes.route('', methods=['POST'])
 @login_required
 def create_character():
     data = request.get_json()
