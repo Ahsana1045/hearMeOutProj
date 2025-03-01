@@ -38,7 +38,7 @@ def upgrade():
         sa.Column('id', sa.Integer(), nullable=False),
         sa.Column('name', sa.String(length=100), nullable=False),
         sa.Column('description', sa.String(length=500), nullable=False),
-        sa.Column('image_url', sa.String(length=500), nullable=False),
+        sa.Column('image_url', sa.String(length=50000), nullable=False),
         sa.Column('user_id', sa.Integer(), nullable=True),
         sa.Column('created_at', sa.DateTime(), nullable=True),
         sa.Column('updated_at', sa.DateTime(), nullable=True),

@@ -14,7 +14,7 @@ class Character(db.Model):
     name = db.Column(db.String(50), unique=True, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False) #in production, want to reference correct table
     description = db.Column(db.String(100), nullable=False)
-    image_url = db.Column(db.String(500), nullable=False)
+    image_url = db.Column(db.String(50000), nullable=False)
     created_at = db.Column(DateTime, default=func.now())
     updated_at = db.Column(DateTime, onupdate=func.now())
 
