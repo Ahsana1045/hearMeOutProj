@@ -40,6 +40,47 @@ def like_character(character_id):
         "user_id": current_user.id
     }), 201
 
+# LIKE A CHARACTER
+
+# @like_routes.route('/<int:character_id>/likes', methods=['POST'])
+# @login_required
+# def like_character(character_id):
+#     print(f"Received POST request to like character {character_id}")  # Debugging line
+#     character = Character.query.get(character_id)
+#     if not character:
+#         return jsonify({"error_message": "Character not found"}), 404
+
+#     like_exists = Like.query.filter_by(user_id=current_user.id, character_id=character_id).first()
+#     if like_exists:
+#         return jsonify({"error_message": "User has already liked this character"}), 400
+
+#     new_like = Like(user_id=current_user.id, character_id=character_id)
+#     db.session.add(new_like)
+#     db.session.commit()
+
+#     return jsonify({
+#         "message": "User successfully liked this character!",
+#         "new_like_id": new_like.id,
+#         "character_id": character_id,
+#         "user_id": current_user.id
+#     }), 201
+
+# @like_routes.route('/<int:character_id>/likes', methods=['POST'])
+# @login_required
+# def like_character(character_id):
+#     like_exists = Like.query.filter_by(user_id= current_user.id, character_id=character_id).first()
+
+#     if like_exists:
+#         return jsonify({"error_message": "User has already liked this song"}), 400
+
+#     new_like = Like(user_id=current_user.id, character_id=character_id)
+#     db.session.add(new_like)
+#     db.session.commit()
+
+#     return jsonify({"message": "User has successfully liked this song!", "new_like_id": new_like.id, "character_id":character_id, "user": current_user.id}), 201
+
+
+
 # DELETE: User unlikes a character
 @like_routes.route('/<int:character_id>/likes', methods=['DELETE'])
 @login_required

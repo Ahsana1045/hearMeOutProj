@@ -1,0 +1,93 @@
+/* SwipesPage.css */
+
+/* This will center the content vertically and horizontally */
+.swipes-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  /* Takes up the full viewport height */
+    margin: 0;      /* Remove default margin */
+    background-color: #f4f4f4;  /* Optional background color */
+    font-family: Arial, sans-serif;
+  }
+
+  /* The character card is a simple white box with padding and rounded corners */
+  .character-card {
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+  }
+
+  /* Character image should be responsive and maintain aspect ratio */
+  .character-image {
+    width: 80%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  /* The character name */
+  h2 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+  }
+
+  /* Description text */
+  p {
+    font-size: 1rem;
+    color: #555;
+  }
+
+  /* Style for the buttons container */
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  /* Circular buttons for Pass and Like */
+  .circle-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ff7f50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+
+  /* Hover effect for the circle buttons */
+  .circle-btn:hover {
+    background-color: #ff6347;
+  }
+
+  .pass-btn {
+    background-color: #f44336; /* Red */
+  }
+
+  .like-btn {
+    background-color: #4caf50; /* Green */
+  }
+
+  /* End message when no more characters */
+  .end-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #333;
+  }
+
+  .end-message p {
+    margin-bottom: 10px;
+  }

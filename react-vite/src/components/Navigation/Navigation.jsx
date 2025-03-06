@@ -5,13 +5,10 @@ import "./Navigation.css";
 function Navigation() {
   return (
     <ul>
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
 
-      <li>
-        <ProfileButton />
-      </li>
+      <NavLink to="/">Hear Me Out?</NavLink>
+
+      <ProfileButton />
     </ul>
   );
 }

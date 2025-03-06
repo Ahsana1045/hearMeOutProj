@@ -2,6 +2,7 @@ from flask import Blueprint, request, jsonify
 from flask_login import login_required, current_user
 from app.models import db, Character, Like
 from sqlalchemy.sql import func
+import random
 
 character_routes = Blueprint('characters', __name__)
 
@@ -12,14 +13,90 @@ def get_characters():
     characters = Character.query.all()
     return jsonify([char.to_dict() for char in characters])
 
-#GET A SINGLE CHARACTER BY ID
-@character_routes.route('/<int:character_id>')
+# GET RANDOM Character
+from sqlalchemy.sql.expression import func
+
+@character_routes.route("/random", methods=["GET"])
+@login_required
+def get_random_character():
+    # Get all character IDs the user has liked
+    liked_character_ids = db.session.query(Like.character_id).filter(Like.user_id == current_user.id)
+
+    # Query a random character that the user hasn't liked
+    random_character = (
+        Character.query
+        .filter(~Character.id.in_(liked_character_ids))  # Exclude liked characters
+        .order_by(func.random())  # Get a random one
+        .first()
+    )
+
+    if not random_character:
+        return jsonify({"message": "No new characters to show"}), 404
+
+    return jsonify(random_character.to_dict())
+
+
+
+
+
+
+
+
+
+# @character_routes.route("/random", methods=["GET"])
 # @login_required
-def get_character(character_id):
-    character = Character.query.get(character_id)
-    if not character:
-        return jsonify({"error": "Character not found"}), 404
-    return jsonify(character.to_dict())
+# def get_random_character():
+#     # Get all character IDs, excluding liked ones
+#     liked_character_ids = {like.character_id for like in current_user.likes}
+
+#     random_character = (
+#         Character.query
+#         .filter(~Character.id.in_(liked_character_ids))  # Exclude liked characters
+#         .order_by(func.random())  # Get a random one
+#         .first()
+#     )
+
+#     if not random_character:
+#         return jsonify({"message": "No new characters to show"}), 404
+
+#     return jsonify(random_character.to_dict())
+
+
+
+
+#GET Random Character by RANDOM ID
+# @character_routes.route("/random-id", methods=["GET"])
+# @login_required
+# def get_random_character_id():
+#     character_id = db.session.query(Character.id).order_by(func.random()).limit(1).scalar()
+
+#     if not character_id:
+#         return jsonify({"message": "No characters found"}), 404
+
+#     return jsonify({"character_id": character_id})
+
+#Get RANDOM 3
+# @character_routes.route("/random", methods=["GET"])
+# @login_required
+# def get_random_character():
+#     # Get all character IDs, excluding liked ones
+#     liked_character_ids = {like.character_id for like in current_user.likes}
+
+#     random_character = (
+#         Character.query
+#         .filter(~Character.id.in_(liked_character_ids))  # Exclude liked characters
+#         .order_by(func.random())  # Get a random one
+#         .first()
+#     )
+
+#     if not random_character:
+#         return jsonify({"message": "No new characters to show"}), 404
+
+#     return jsonify(random_character.to_dict())
+
+
+
+
 
 #CREATE A CHARACTER (LOGIN REQUIRED)
 @character_routes.route('', methods=['POST'])
