@@ -6,16 +6,22 @@ from sqlalchemy.sql import text
 def seed_users():
     demo = User(
         username='Demo',
-        first_name='Ali',
-        last_name='Ahsan',
+        # first_name='Ali',
+        # last_name='Ahsan',
         email='demo@aa.io',
         password='password')
     marnie = User(
-        username='marnie', first_name='Marnie',
-        last_name='Kid', email='marnie@aa.io', password='password')
+        username='marnie',
+        # first_name='Marnie',
+        # last_name='Kid',
+        email='marnie@aa.io',
+        password='password')
     bobbie = User(
-        username='bobbie', first_name='Bobbi',
-        last_name='Sef', email='bobbie@aa.io', password='password')
+        username='bobbie',
+        # first_name='Bobbi',
+        # last_name='Sef',
+        email='bobbie@aa.io',
+        password='password')
 
     db.session.add(demo)
     db.session.add(marnie)

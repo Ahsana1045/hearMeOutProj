@@ -8,8 +8,8 @@ function SignupFormModal() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
-  const [first_name, setFirstName] = useState("");
-  const [last_name, setLastName] = useState("");
+  // const [first_name, setFirstName] = useState("");
+  // const [last_name, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
@@ -29,8 +29,8 @@ function SignupFormModal() {
       thunkSignup({
         email,
         username,
-        first_name,
-        last_name,
+        // first_name,
+        // last_name,
         password,
       })
     );

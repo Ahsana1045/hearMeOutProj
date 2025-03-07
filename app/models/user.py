@@ -11,8 +11,8 @@ class User(db.Model, UserMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(40), nullable=False, unique=True)
-    first_name = db.Column(db.String(40), nullable=False)
-    last_name = db.Column(db.String(40), nullable=False)
+    # first_name = db.Column(db.String(40), nullable=False)
+    # last_name = db.Column(db.String(40), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
@@ -37,7 +37,7 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'first_name': self.first_name,
-            'last_name': self.last_name,
+            # 'first_name': self.first_name,
+            # 'last_name': self.last_name,
             'email': self.email,
         }
