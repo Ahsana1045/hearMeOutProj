@@ -14,12 +14,10 @@ function ProfilePage() {
   useEffect(() => {
     if (user) {
       // Fetch characters created by the user
-      fetch(`/api/characters`)
+      fetch(`/api/users/${user.id}/characters`) // Use the new route
         .then((res) => res.json())
-        .then((data) => {
-          const userChars = data.filter((char) => char.user_id === user.id);
-          setUserCharacters(userChars);
-        });
+        .then(setUserCharacters);
+
 
       // Fetch top 5 most liked characters
       fetch(`/api/characters/top-liked`)
