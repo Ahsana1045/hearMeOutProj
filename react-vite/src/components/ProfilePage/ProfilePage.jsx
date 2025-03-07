@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useModal } from "../../context/Modal";
+// import { useModal } from "../../context/Modal";
 import OpenModalButton from "../OpenModalButton";
 import CharacterFormModal from "../CharacterFormModal/CharacterFormModal"; // Import CharacterForm modal
-// import "./ProfilePage.css"; #ADD LATER
+import "./ProfilePage.css";
 
 function ProfilePage() {
   const user = useSelector((state) => state.session.user);
-  const { openModal } = useModal();
+  // const { openModal } = useModal();
   const [userCharacters, setUserCharacters] = useState([]);
   const [topLikedCharacters, setTopLikedCharacters] = useState([]);
 
@@ -28,11 +28,30 @@ function ProfilePage() {
     }
   }, [user]);
 
+  const handleDelete = async (characterId) => {
+    if (!window.confirm("Are you sure you want to delete this character?")) return;
+
+    try {
+      const response = await fetch(`/api/characters/${characterId}`, {
+        method: "DELETE",
+        credentials: "include",
+      });
+
+      if (!response.ok) throw new Error("Failed to delete character");
+
+      // Remove character from state
+      setUserCharacters((prev) => prev.filter((char) => char.id !== characterId));
+    } catch (error) {
+      console.error("Error deleting character:", error);
+    }
+  };
+
+
   if (!user) return <h2>Please log in to view your profile.</h2>;
 
   return (
     <div className="profile-page">
-      <h1>{user.username}'s Profile</h1>
+      <h1>{`${user.username}'s Profile`}</h1>
 
       <OpenModalButton
         buttonText="+ Create Character"
@@ -52,10 +71,22 @@ function ProfilePage() {
               <img src={char.image_url} alt={char.name} />
               <h3>{char.name}</h3>
               <p>{char.description}</p>
+
+              {/* Buttons for delete and update */}
+              <div className="character-buttons">
+                <button onClick={() => handleDelete(char.id)} className="delete-button">
+                  Delete
+                </button>
+                <OpenModalButton
+                  buttonText="Update"
+                  modalComponent={<CharacterFormModal character={char} />}
+                />
+              </div>
             </div>
           ))
+
         ) : (
-          <p>You haven't created any characters yet.</p>
+          <p>{`You haven't created any characters yet.`}</p>
         )}
       </div>
 
