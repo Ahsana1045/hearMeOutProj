@@ -1,9 +1,11 @@
 /* Profile dropdown button styling */
 .profile-dropdown {
   position: absolute;
+  display: flex;
   /* bottom: -110px; Adjust this based on the height of the ProfileButton */
+  top: 10px;
   right: 0;
-  background-color: #ff6774;
+  background-color: #5c80bc;
   color: black;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 5px;

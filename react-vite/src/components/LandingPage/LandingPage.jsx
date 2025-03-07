@@ -1,6 +1,8 @@
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import OpenModalButton from "../OpenModalButton";
+import "../LandingPage/LandingPage.css"
+
 
 export default function LandingPage() {
   return (
