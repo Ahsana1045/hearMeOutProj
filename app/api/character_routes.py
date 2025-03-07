@@ -99,6 +99,10 @@ def get_random_character():
 
 
 #CREATE A CHARACTER (LOGIN REQUIRED)
+from sqlalchemy.exc import IntegrityError
+from flask import jsonify
+
+# CREATE A CHARACTER (LOGIN REQUIRED)
 @character_routes.route('', methods=['POST'])
 @login_required
 def create_character():
@@ -110,6 +114,11 @@ def create_character():
     if not name or not description or not image_url:
         return jsonify({"error": "All fields are required"}), 400
 
+    # Check if character name already exists
+    existing_character = Character.query.filter_by(name=name).first()
+    if existing_character:
+        return jsonify({"error": "Character with this name already exists"}), 400
+
     new_character = Character(
         name=name,
         description=description,
@@ -117,10 +126,37 @@ def create_character():
         user_id=current_user.id  # Assigns the logged-in user as the creator
     )
 
-    db.session.add(new_character)
-    db.session.commit()
+    try:
+        db.session.add(new_character)
+        db.session.commit()
+        return jsonify(new_character.to_dict()), 201
+    except IntegrityError:
+        db.session.rollback()  # Rollback transaction in case of failure
+        return jsonify({"error": "An error occurred while creating the character"}), 500
 
-    return jsonify(new_character.to_dict()), 201
+
+# @character_routes.route('', methods=['POST'])
+# @login_required
+# def create_character():
+#     data = request.get_json()
+#     name = data.get("name")
+#     description = data.get("description")
+#     image_url = data.get("image_url")
+
+#     if not name or not description or not image_url:
+#         return jsonify({"error": "All fields are required"}), 400
+
+#     new_character = Character(
+#         name=name,
+#         description=description,
+#         image_url=image_url,
+#         user_id=current_user.id  # Assigns the logged-in user as the creator
+#     )
+
+#     db.session.add(new_character)
+#     db.session.commit()
+
+#     return jsonify(new_character.to_dict()), 201
 
 #UPDATE A CHARACTER (ONLY IF CREATED BY THE USER)
 @character_routes.route('/<int:character_id>', methods=['PUT'])

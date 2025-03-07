@@ -32,17 +32,20 @@ import { useModal } from "../../context/Modal";
         body: JSON.stringify(characterData),
       });
 
+      const data = await response.json(); // Always parse the response first
+
       if (response.ok) {
         closeModal();
         window.location.reload(); // Refresh to show updated character
       } else {
-        const data = await response.json();
-        setErrors(data.errors || { message: "Failed to save character." });
+        setErrors({ message: data.error || "Failed to save character." });
       }
     } catch (err) {
       console.error("Error saving character:", err);
+      setErrors({ message: "Something went wrong. Please try again later." });
     }
   };
+
 
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
@@ -113,7 +116,7 @@ import { useModal } from "../../context/Modal";
       </form>
     </div>
   );
-  
+
   // return (
   //   <div className="character-form-modal">
   //     <h1>Create a Character</h1>
