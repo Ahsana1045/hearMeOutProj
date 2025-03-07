@@ -89,13 +89,13 @@ function ProfilePage() {
       </div>
 
       <h2>Top 5 Most Liked Characters</h2>
-      <div className="character-list">
+      <div id="top-liked-characters" className="character-list">
         {topLikedCharacters.length ? (
           topLikedCharacters.map((char) => (
-            <div key={char.id} className="character-card">
-              <img src={char.image_url} alt={char.name} />
+            <div id="top-5-list" key={char.id} className="character-card">
+              <img id="top-5-images" src={char.image_url} alt={char.name} />
               <h3>{char.name}</h3>
-              <p>{char.description}</p>
+              {/* <p>{char.description}</p> */}
               <p>Likes: {char.like_count}</p>
             </div>
           ))

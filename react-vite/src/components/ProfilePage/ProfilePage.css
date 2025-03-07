@@ -1,1 +1,118 @@
+/* Profile page */
+.profile-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
 
+  /* Character card styles */
+  .character-card {
+    width: 220px; /* Set width for uniform cards */
+    height: 350px; /* Set a fixed height for uniformity */
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 15px;
+    text-align: center;
+  }
+
+  /* Ensure the images don't overflow and stay within the set size */
+  .character-card img {
+    width: 100%;  /* Makes the image width responsive */
+    height: 200px; /* Fixed height to avoid large images */
+    object-fit: cover; /* Ensures the image covers the area without stretching */
+    border-radius: 8px; /* Optional: Rounds the corners of the image */
+  }
+
+  /* Styling for text and buttons */
+  .character-card h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+
+  .character-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+
+  .character-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .delete-button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .delete-button:hover {
+    background-color: #e04343;
+  }
+
+  button {
+    border-radius: 5px;
+  }
+
+  /* Character list layout for 4 cards per row */
+  .character-list {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(4, 1fr); /* 4 equal-width columns */
+    gap: 15px; /* Space between the cards */
+    justify-items: center; /* Center the cards in the grid */
+    margin-top: 20px;
+  }
+
+  #top-liked-characters {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: nowrap;
+    /* overflow-x: auto; Allow horizontal scrolling if needed
+  }
+
+  #top-liked-characters .character-card {
+    flex: 0 0 20%; /* Adjust the width to fit 5 cards in a row */
+    margin-right: 10px; /* Space between cards */
+  }
+
+  #top-5-list {
+    width: 150px;
+    height: 230px;
+}
+
+#top-5-images{
+    height: 150px;
+    width: 150px;
+}
+
+  /* Make sure it's responsive for smaller screens */
+  @media (max-width: 1024px) {
+    .character-list {
+      grid-template-columns: repeat(3, 1fr); /* 3 columns for tablet */
+    }
+  }
+
+  @media (max-width: 768px) {
+    .character-list {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .character-list {
+      grid-template-columns: 1fr; /* 1 column for very small screens */
+    }
+  }
