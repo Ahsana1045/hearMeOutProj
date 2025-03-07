@@ -89,7 +89,7 @@ export default function SwipesPage() {
         <p>Loading character...</p>
       ) : character ? (
         <div className="character-card">
-          <img src={character.image_url} alt={character.name} />
+          <img className="character-image" src={character.image_url} alt={character.name} />
           <h2>{character.name}</h2>
           <p>{character.description}</p>
           <div className="buttons">
