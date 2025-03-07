@@ -17,6 +17,7 @@
     height: 400px;
     background-color: white;
     border-radius: 10px;
+    border: 5px solid black ;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
@@ -51,7 +52,18 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin-top: 20px;
+  }
+
+  #likePass{
+    border: 5px solid black;
+  }
+
+  .likeButton:hover{
+    background-color: #4caf50;
+  }
+
+  .passButton:hover{
+    background-color: #ff674d;
   }
 
   /* Circular buttons for Pass and Like */

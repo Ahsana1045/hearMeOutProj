@@ -82,8 +82,8 @@ export default function SwipesPage() {
           <h2>{character.name}</h2>
           <p>{character.description}</p>
           <div className="buttons">
-            <button onClick={handlePass}>Pass</button>
-            <button onClick={handleLike}>Like</button>
+            <button id="likePass" className="passButton" onClick={handlePass}>Pass</button>
+            <button id="likePass" className="likeButton" onClick={handleLike}>Like</button>
           </div>
         </div>
       ) : (
