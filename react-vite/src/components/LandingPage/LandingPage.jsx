@@ -8,6 +8,7 @@ export default function LandingPage() {
   return (
     <div className="landing-container">
       <h1 className="title">Hear Me Out?</h1>
+      <h4>No judgment, only understanding</h4>
       <div className="button-group">
         <OpenModalButton
           buttonText="Log In"

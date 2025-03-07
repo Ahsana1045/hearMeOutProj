@@ -7,7 +7,9 @@ function Navigation() {
     <nav className="navbar">
       <div className="left">
         <NavLink to="/" className="nav-link">
+
           <img src="/public/blackFire.png" alt=""  className="logo"/>
+          HMO?
         </NavLink>
       </div>
       <div className="right">
